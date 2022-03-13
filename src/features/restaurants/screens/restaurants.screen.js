@@ -6,7 +6,7 @@ import styled from "styled-components/native";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component.js";
 
 const SearchContainer = styled.View`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 const SafeArea = styled(SafeAreaView)`
@@ -16,7 +16,7 @@ const SafeArea = styled(SafeAreaView)`
 
 const RestaurantListContainer = styled.View`
   flex: 1px;
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 export const RestaurantsScreen = () => (
