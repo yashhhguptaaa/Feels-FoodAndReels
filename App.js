@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Text } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import { NavigationContainer } from "@react-navigation/native";
@@ -49,7 +50,26 @@ export default function App() {
     <>
       <ThemeProvider theme={theme}>
         <NavigationContainer>
-          <Tab.Navigator>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              tabBarIcon: ({ color, size }) => {
+                let iconName;
+
+                if (route.name === "Restaurants") {
+                  iconName = "md-restaurant";
+                } else if (route.name === "Settings") {
+                  iconName = "md-settings";
+                } else if (route.name === "Map") {
+                  iconName = "md-map";
+                }
+
+                // You can return any component that you like here!
+                return <Ionicons name={iconName} size={size} color={color} />;
+              },
+              tabBarActiveTintColor: "tomato",
+              tabBarInactiveTintColor: "gray",
+            })}
+          >
             <Tab.Screen name="Restaurants" component={RestaurantsScreen} />
             <Tab.Screen name="Map" component={Map} />
             <Tab.Screen name="Settings" component={Settings} />
