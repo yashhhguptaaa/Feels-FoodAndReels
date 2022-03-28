@@ -11,7 +11,7 @@ export const restaurantsRequest = (location = "41.878113,-87.629799") => {
   });
 };
 
-const restaurantsTransform = ({ results = [] }) => {
+export const restaurantsTransform = ({ results = [] }) => {
   const mappedResults = results.map((restaurant) => {
     return {
       ...restaurant,
