@@ -11,17 +11,13 @@ export const restaurantsRequest = (location = "41.878113,-87.629799") => {
   });
 };
 
-const restaurantsTransform = (result) => {
-  return camelize(result);
-};
-
-restaurantsRequest()
-  .then(restaurantsTransform)
-  .then((transformedResource) => {
-    console.log(transformedResource);
-  })
-  .catch((err) => {
-    console.log("Error:", err);
+const restaurantsTransform = ({ results = [] }) => {
+  const mappedResults = results.map((restaurant) => {
+    return {
+      ...restaurant,
+      isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
+      isClosedTemporarily: restaurant.business_status === "CLOSED_TEMPORARILY",
+    };
   });
-
-console.log("Printing Result");
+  return camelize(mappedResults);
+};
