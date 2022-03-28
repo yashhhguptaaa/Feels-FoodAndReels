@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Searchbar, ActivityIndicator, Colors } from "react-native-paper";
-import { FlatList, View } from "react-native";
+import { FlatList } from "react-native";
 import styled from "styled-components/native";
 
 import { SafeArea } from "../../../components/utility/safe-area.component.js";
