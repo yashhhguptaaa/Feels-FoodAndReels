@@ -1,5 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
-import react, {
+import React, {
   useState,
   useContext,
   createContext,
@@ -8,8 +7,8 @@ import react, {
 } from "react";
 
 import {
-  restaurantsTransform,
   restaurantsRequest,
+  restaurantsTransform,
 } from "./restaurants.service";
 
 import { LocationContext } from "../location/location.context";
@@ -22,11 +21,12 @@ export const RestaurantsContextProvider = ({ children }) => {
   const [error, setError] = useState(null);
   const { location } = useContext(LocationContext);
 
-  const retrieveRestaurants = (location) => {
+  const retrieveRestaurants = (loc) => {
     setIsLoading(true);
     setRestaurants([]);
+
     setTimeout(() => {
-      restaurantsRequest(location)
+      restaurantsRequest(loc)
         .then(restaurantsTransform)
         .then((results) => {
           setIsLoading(false);
@@ -38,7 +38,6 @@ export const RestaurantsContextProvider = ({ children }) => {
         });
     }, 2000);
   };
-
   useEffect(() => {
     if (location) {
       const locationString = `${location.lat},${location.lng}`;

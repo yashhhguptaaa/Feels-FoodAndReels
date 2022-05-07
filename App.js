@@ -1,11 +1,10 @@
-import React from "react";
-
-import { Text } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import React from "react";
+import { Text } from "react-native";
+import { ThemeProvider } from "styled-components/native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 
 import {
   useFonts as useOswald,
@@ -13,12 +12,9 @@ import {
 } from "@expo-google-fonts/oswald";
 import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
 
-import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { theme } from "./src/infrastructure/theme";
+import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
 import { SafeArea } from "./src/components/utility/safe-area.component";
-
-import { ThemeProvider } from "styled-components/native";
-
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 import { LocationContextProvider } from "./src/services/location/location.context";
 
@@ -50,13 +46,12 @@ const createScreenOptions = ({ route }) => {
   };
 };
 
-// const isAndroid = Platform.OS==='android'
 export default function App() {
-  let [oswaldLoaded] = useOswald({
+  const [oswaldLoaded] = useOswald({
     Oswald_400Regular,
   });
 
-  let [latoLoaded] = useLato({
+  const [latoLoaded] = useLato({
     Lato_400Regular,
   });
 

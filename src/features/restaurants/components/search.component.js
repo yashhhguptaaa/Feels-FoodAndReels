@@ -1,7 +1,7 @@
-/* eslint-disable react/react-in-jsx-scope */
-import react, { useContext, useEffect, useState } from "react";
-import { Searchbar } from "react-native-paper";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useContext, useEffect, useState } from "react";
 import styled from "styled-components/native";
+import { Searchbar } from "react-native-paper";
 
 import { LocationContext } from "../../../services/location/location.context";
 
