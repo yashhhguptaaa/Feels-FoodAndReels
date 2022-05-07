@@ -1,9 +1,17 @@
 import React from "react";
-// import { gestureHandlerRootHOC } from "react-native-gesture-handler";
 import { createStackNavigator } from "@react-navigation/stack";
 import { RestaurantsScreen } from "../../features/restaurants/screens/restaurants.screen";
+import { Text } from "react-native";
+import { SafeArea } from "../../components/utility/safe-area.component";
 
 const RestaurantStack = createStackNavigator();
+
+// Any component which is inside Stack component, automatically gets prop.
+const RestaurantDetail = () => (
+  <SafeArea>
+    <Text>Restaurant Details</Text>
+  </SafeArea>
+);
 
 export const RestaurantsNavigator = () => {
   return (
@@ -11,6 +19,10 @@ export const RestaurantsNavigator = () => {
       <RestaurantStack.Screen
         name="Restaurants"
         component={RestaurantsScreen}
+      />
+      <RestaurantStack.Screen
+        name="RestaurantDetail"
+        component={RestaurantDetail}
       />
     </RestaurantStack.Navigator>
   );
