@@ -7,7 +7,6 @@ import { SafeArea } from "../../../components/utility/safe-area.component";
 import { Spacer } from "../../../components/spacer/spacer.component";
 
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
-
 import { Search } from "../components/search.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 
@@ -28,7 +27,6 @@ const LoadingContainer = styled.View`
 // Any component which is inside Stack component, automatically gets prop and here we are getting navigation from props..
 export const RestaurantsScreen = ({ navigation }) => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
-
   return (
     <SafeArea>
       {isLoading && (
