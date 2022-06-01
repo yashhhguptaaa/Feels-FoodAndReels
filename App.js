@@ -1,6 +1,7 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
 import React from "react";
 import { ThemeProvider } from "styled-components/native";
+import * as firebase from "firebase";
 
 import {
   useFonts as useOswald,
@@ -13,6 +14,17 @@ import { RestaurantsContextProvider } from "./src/services/restaurants/restauran
 import { LocationContextProvider } from "./src/services/location/location.context";
 import { FavouritesContextProvider } from "./src/services/favourites/favourites.context";
 import { Navigation } from "./src/infrastructure/navigation";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA_E-sJgJWj2W1mBcGZ4VTafei8wMyd1-0",
+  authDomain: "feels-food-reels.firebaseapp.com",
+  projectId: "feels-food-reels",
+  storageBucket: "feels-food-reels.appspot.com",
+  messagingSenderId: "923326547242",
+  appId: "1:923326547242:web:161ea59f7bd9729b794a53",
+};
+
+firebase.initializeApp(firebaseConfig);
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
